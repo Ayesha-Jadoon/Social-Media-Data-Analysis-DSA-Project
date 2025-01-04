@@ -121,15 +121,11 @@ This project uses the Sentiment140 dataset, which contains 1.6 million tweets.
 
 ## Future Enhancements
 
-- **Real-time Sentiment Analysis:**  
-  Implement real-time sentiment analysis using the Twitter API to analyze live tweets.
+- **Real-time Sentiment Analysis:**
+Modify the system to access real-time data from social media APIs for continuous sentiment analysis.
 
-- **Web-based Visualization Dashboard:**  
-  Develop a user-friendly web-based dashboard to visualize sentiment analysis results and insights.
+- **Advanced NLP Models:**
+Explore advanced NLP models, such as LSTM or BERT, for more accurate sentiment classification.
 
-- **Support for Multilingual Datasets:**  
-  Extend the tool to support sentiment analysis for multilingual datasets, allowing users to analyze text in different languages.
-
-- **Deep Learning Integration:**  
-  Integrate deep learning models, such as LSTM or BERT, for improved sentiment classification and more accurate results.
-
+- **Multilingual Support:**
+Enhance the system to process and classify sentiments in multiple languages.
