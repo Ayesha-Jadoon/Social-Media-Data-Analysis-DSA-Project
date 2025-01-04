@@ -48,7 +48,8 @@ This project processes datasets like Sentiment140 to classify social media data,
   - `wordcloud`
 
 Install dependencies with:
-pip install -r requirements.txt
+
+`pip install -r requirements.txt`
 
 
 ## Dataset Requirements
@@ -56,27 +57,14 @@ pip install -r requirements.txt
 **Format:** CSV
 
 **Required Columns:**
-- `text` – Contains social media posts, tweets, or comments.
-- `target` (optional) – Sentiment label (e.g., 0 = Negative, 2 = Neutral, 4 = Positive).
+- `text` – Contains social media posts, tweets, comments, or reviews. The program will automatically detect the column if named `text`, `comment`, `review`, `message`, or `tweet`.
 
 **Column Flexibility:**  
 If the dataset lacks a text column, the program prompts the user to select one manually. Common column names detected automatically: `text`, `comment`, `review`, `message`, `tweet`.
 
-**Example Dataset:**
-
-| id  | text                              | target |
-|-----|-----------------------------------|--------|
-| 1   | I love this product!              | 4      |
-| 2   | This is the worst experience      | 0      |
 
 ---
 
-## Setup Instructions
-
-1. **Clone the Repository:**
-
-
-git clone https://github.com/username/Social-Media-Data-Analysis.git
 
 ## How It Works
 
