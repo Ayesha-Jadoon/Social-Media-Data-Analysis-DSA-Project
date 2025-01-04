@@ -63,7 +63,7 @@ Install dependencies with:
 If the dataset lacks a text column, the program prompts the user to select one manually. Common column names detected automatically: `text`, `comment`, `review`, `message`, `tweet`.
 
 **Dataset Used:**
-This project uses the Sentiment140 dataset, which contains 1.6 million tweets.
+- This project uses the Sentiment140 dataset, which contains 1.6 million tweets.
 ---
 
 
