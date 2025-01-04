@@ -1,131 +1,134 @@
-# Social-Media-Data-Analysis-DSA-Project
-# Social Media Data Analysis (DSA Project)  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Data Analysis (DSA Project)</title>
+</head>
+<body>
+    <h1>Social-Media-Data-Analysis-DSA-Project</h1>
+    <p>
+        This project implements sentiment analysis on social media datasets by applying core Data Structures and Algorithms (DSA). 
+        The code leverages hashing, sorting, and classification techniques to preprocess, analyze, and visualize text data.
+    </p>
 
-This project implements sentiment analysis on social media datasets by applying core Data Structures and Algorithms (DSA). The code leverages hashing, sorting, and classification techniques to preprocess, analyze, and visualize text data.  
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#project-scope">Project Scope</a></li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#dataset-requirements">Dataset Requirements</a></li>
+        <li><a href="#setup-instructions">Setup Instructions</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#dsa-concepts-used">DSA Concepts Used</a></li>
+        <li><a href="#output">Output</a></li>
+        <li><a href="#example-output">Example Output</a></li>
+        <li><a href="#future-enhancements">Future Enhancements</a></li>
+        <li><a href="#contributing">Contributing</a></li>
+        <li><a href="#license">License</a></li>
+        <li><a href="#author">Author</a></li>
+    </ul>
 
----
+    <h2 id="features">Features</h2>
+    <ul>
+        <li><strong>Text Preprocessing:</strong> Clean and preprocess text data by removing unwanted characters, stopwords, and applying stemming.</li>
+        <li><strong>Sentiment Classification:</strong> Classify sentiment (Positive, Negative, Neutral) using TextBlob and Logistic Regression.</li>
+        <li><strong>Word Frequency Analysis:</strong> Use hashmaps to calculate and visualize word frequencies from processed text.</li>
+        <li><strong>Sorting by Sentiment:</strong> Sort tweets based on sentiment values.</li>
+        <li><strong>Visualization:</strong> Generate sentiment distribution charts, word clouds, and confusion matrices.</li>
+        <li><strong>Model Training:</strong> Train a Logistic Regression model using TF-IDF features for sentiment prediction.</li>
+    </ul>
 
-## Table of Contents  
-- [Features](#features)  
-- [Project Scope](#project-scope)  
-- [Requirements](#requirements)  
-- [Dataset Requirements](#dataset-requirements)  
-- [Setup Instructions](#setup-instructions)  
-- [How It Works](#how-it-works)  
-- [DSA Concepts Used](#dsa-concepts-used)  
-- [Output](#output)  
-- [Example Output](#example-output)  
-- [Future Enhancements](#future-enhancements)  
-- [Contributing](#contributing)  
-- [License](#license)  
-- [Author](#author)  
+    <h2 id="project-scope">Project Scope</h2>
+    <p>
+        This project processes datasets like Sentiment140 to classify social media data and visualize sentiment distribution. 
+        It incorporates DSA techniques to efficiently handle large datasets and apply sorting and hashing algorithms.
+    </p>
 
----
+    <h2 id="requirements">Requirements</h2>
+    <ul>
+        <li><strong>Programming Language:</strong> Python 3.x</li>
+        <li><strong>Libraries:</strong></li>
+        <ul>
+            <li>numpy</li>
+            <li>pandas</li>
+            <li>scikit-learn</li>
+            <li>nltk</li>
+            <li>TextBlob</li>
+            <li>swifter</li>
+            <li>matplotlib</li>
+            <li>seaborn</li>
+            <li>wordcloud</li>
+        </ul>
+    </ul>
+    <p>Install dependencies with:</p>
+    <pre><code>pip install -r requirements.txt</code></pre>
 
-## Features  
-- **Text Preprocessing:**  
-  - Clean and preprocess text data by removing unwanted characters, stopwords, and applying stemming.  
-- **Sentiment Classification:**  
-  - Classify sentiment (Positive, Negative, Neutral) using TextBlob and Logistic Regression.  
-- **Word Frequency Analysis:**  
-  - Use hashmaps to calculate and visualize word frequencies from processed text.  
-- **Sorting by Sentiment:**  
-  - Sort tweets based on sentiment values.  
-- **Visualization:**  
-  - Generate sentiment distribution charts, word clouds, and confusion matrices.  
-- **Model Training:**  
-  - Train a Logistic Regression model using TF-IDF features for sentiment prediction.  
+    <h2 id="dataset-requirements">Dataset Requirements</h2>
+    <ul>
+        <li><strong>Format:</strong> CSV</li>
+        <li><strong>Required Columns:</strong></li>
+        <ul>
+            <li><code>text</code> – Contains social media posts, tweets, or comments.</li>
+            <li><code>target</code> (optional) – Sentiment label (e.g., 0 = Negative, 2 = Neutral, 4 = Positive).</li>
+        </ul>
+        <li><strong>Column Flexibility:</strong></li>
+        <ul>
+            <li>If the dataset lacks a text column, the program prompts the user to select one manually.</li>
+            <li>Automatically detected common column names: <code>text</code>, <code>comment</code>, <code>review</code>, <code>message</code>, <code>tweet</code></li>
+        </ul>
+    </ul>
 
----
+    <h2>Example Dataset</h2>
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>text</th>
+            <th>target</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>I love this product!</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>This is the worst experience</td>
+            <td>0</td>
+        </tr>
+    </table>
 
-## Project Scope  
-This project processes datasets like Sentiment140 to classify social media data and visualize sentiment distribution. It incorporates DSA techniques to efficiently handle large datasets and apply sorting and hashing algorithms.  
+    <h2 id="setup-instructions">Setup Instructions</h2>
+    <pre><code>
+git clone https://github.com/username/Social-Media-Data-Analysis.git
+cd Social-Media-Data-Analysis
+pip install -r requirements.txt
+python main.py
+    </code></pre>
 
----
+    <h2 id="how-it-works">How It Works</h2>
+    <p>
+        The system loads datasets, preprocesses text, classifies sentiment, and generates visualizations. 
+        The model is trained using Logistic Regression on TF-IDF vectorized text data.
+    </p>
 
-## Requirements  
-- **Programming Language:** Python 3.x  
-- **Libraries:**  
-  - `numpy`  
-  - `pandas`  
-  - `scikit-learn`  
-  - `nltk`  
-  - `TextBlob`  
-  - `swifter`  
-  - `matplotlib`  
-  - `seaborn`  
-  - `wordcloud`  
+    <h2 id="dsa-concepts-used">DSA Concepts Used</h2>
+    <ul>
+        <li><strong>Hashing (Word Frequency Analysis):</strong> Hashmaps store word counts efficiently. <em>Time Complexity: O(n)</em></li>
+        <li><strong>Sorting (Sorting Sentiments):</strong> Sentiments are sorted using Python's Timsort. <em>Time Complexity: O(n log n)</em></li>
+        <li><strong>Classification (Sentiment Prediction):</strong> Logistic Regression is used for sentiment classification.</li>
+        <li><strong>Text Processing:</strong> Preprocessing applies regex and stemming to clean text data.</li>
+    </ul>
 
-Install dependencies with:  
-```bash  
-pip install -r requirements.txt  
-Dataset Requirements
-Format: CSV
+    <h2 id="output">Output</h2>
+    <ul>
+        <li>Processed Dataset: <code>processed_&lt;original_file&gt;.csv</code></li>
+        <li>Visualizations: Sentiment distribution, word cloud, and confusion matrix.</li>
+    </ul>
 
-Required Columns:
-
-text – Contains social media posts, tweets, or comments.
-target (optional) – Sentiment label (e.g., 0 = Negative, 2 = Neutral, 4 = Positive).
-Column Flexibility:
-
-If the dataset lacks a text column, the program prompts the user to select one manually.
-Automatically detected common column names:
-text, comment, review, message, tweet
-Example Dataset:
-
-id	text	target
-1	I love this product!	4
-2	This is the worst experience	0
-Setup Instructions
-Clone the Repository:
-bash
-Copy code
-git clone https://github.com/username/Social-Media-Data-Analysis.git  
-Navigate to the Project Directory:
-bash
-Copy code
-cd Social-Media-Data-Analysis  
-Install Dependencies:
-bash
-Copy code
-pip install -r requirements.txt  
-Run the Analysis Script:
-bash
-Copy code
-python main.py  
-How It Works
-Dataset Loading:
-The user inputs the CSV dataset path.
-Text Column Detection:
-The program attempts to detect the text column or prompts the user to select it manually.
-Text Preprocessing:
-Regex, lowercasing, and stemming are applied to clean the data.
-Sentiment Classification:
-TextBlob is used to classify sentiment (Positive, Negative, Neutral).
-Visualization:
-Sentiment distribution, word frequency, and confusion matrix are visualized.
-Model Training:
-Logistic Regression is trained using TF-IDF vectorization for sentiment prediction.
-DSA Concepts Used
-Hashing (Word Frequency Analysis):
-A hashmap (defaultdict) stores word counts during word frequency analysis.
-Time Complexity: O(n) – Efficient insertion and lookup.
-Sorting (Sorting Sentiments):
-Sentiments are sorted using Python's built-in sort (Timsort).
-Time Complexity: O(n log n).
-Classification (Sentiment Prediction):
-Logistic Regression is used to classify sentiment.
-Algorithm: Logistic Regression (ML model)
-Text Processing (String Manipulation):
-Preprocessing uses regex and Porter Stemming for efficient text processing.
-Output
-Processed Dataset:
-Saved as processed_<original_file>.csv
-Visualizations:
-Sentiment distribution (output/sentiment_distribution.png)
-Top 10 words (output/top_10_words.png)
-Word cloud (output/word_cloud.png)
-Confusion matrix (output/confusion_matrix.png)
-pip install -r requirements.txt  
-
-
+    <h2 id="author">Author</h2>
+    <p><strong>Ayesha Jadoon</strong></p>
+    <p><strong>Subject:</strong> Data Structures and Algorithms (DSA)</p>
+    <p><strong>University:</strong> Abbottabad University of Science & Technology</p>
+</body>
+</html>
