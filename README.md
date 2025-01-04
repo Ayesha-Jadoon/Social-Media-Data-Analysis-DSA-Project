@@ -93,11 +93,9 @@ If the dataset lacks a text column, the program prompts the user to select one m
 
 - **Hashing (Word Frequency Analysis):**  
   A hashmap (defaultdict) stores word counts during frequency analysis.  
-  **Time Complexity:** O(n) – Efficient insertion and lookup.
 
 - **Sorting (Sorting Sentiments):**  
   Sentiments are sorted using Python's built-in sort (Timsort).  
-  **Time Complexity:** O(n log n).
 
 - **Classification (Sentiment Prediction):**  
   Logistic Regression is used to classify sentiment.  
