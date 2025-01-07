@@ -101,37 +101,37 @@ if os.path.exists(file_path):
 
     if os.path.exists(save_path):
         print(f"\nProcessed file already exists: {save_path}")
-        twitter_data = pd.read_csv(save_path)
+        social_data = pd.read_csv(save_path)
         print("Loaded processed data successfully.")
     else:
         # Load dataset without a header row
-        twitter_data = pd.read_csv(file_path, encoding='ISO-8859-1')
+        social_data = pd.read_csv(file_path, encoding='ISO-8859-1')
         print("\nLoaded dataset successfully.")
         
-        text_column = get_text_column(twitter_data)
+        text_column = get_text_column(social_data)
         print(f"\nUsing '{text_column}' as the text column.")
         
         # Preprocess and classify sentiment
         print("\nProcessing data...")
-        twitter_data['processed_text'] = twitter_data[text_column].swifter.apply(preprocess_text)
-        twitter_data['sentiment'] = twitter_data['processed_text'].swifter.apply(classify_sentiment)
+        social_data['processed_text'] = social_data[text_column].swifter.apply(preprocess_text)
+        social_data['sentiment'] = social_data['processed_text'].swifter.apply(classify_sentiment)
         
         # Save processed data
-        twitter_data.to_csv(save_path, index=False)
+        social_data.to_csv(save_path, index=False)
         print(f"\nProcessed data saved as {save_path}")
     
     # Handle missing values in processed_text
-    print(f"Number of NaN values in processed_text: {twitter_data['processed_text'].isnull().sum()}")
-    twitter_data = twitter_data.dropna(subset=['processed_text'])
+    print(f"Number of NaN values in processed_text: {social_data['processed_text'].isnull().sum()}")
+    social_data = social_data.dropna(subset=['processed_text'])
 
     # Sentiment distribution
-    sentiment_counts = twitter_data['sentiment'].value_counts()
+    sentiment_counts = social_data['sentiment'].value_counts()
     print("\nSentiment Distribution:")
     print(sentiment_counts)
 
     # Visualization - Sentiment Distribution
     plt.figure(figsize=(8, 6))
-    sns.countplot(x='sentiment', data=twitter_data, palette='viridis')
+    sns.countplot(x='sentiment', data=social_data, palette='viridis')
     plt.title('Sentiment Distribution')
     plt.xlabel('Sentiment')
     plt.ylabel('Count')
@@ -139,12 +139,12 @@ if os.path.exists(file_path):
     plt.close()
 
     # Prepare data for model
-    X = twitter_data['processed_text']
-    y = twitter_data['sentiment'].map({'Positive': 1, 'Negative': 0, 'Neutral': 2})
+    X = social_data['processed_text']
+    y = social_data['sentiment'].map({'Positive': 1, 'Negative': 0, 'Neutral': 2})
 
     # Word Frequency Analysis (using hashing)
     print("\nWord Frequency Analysis (Top 10 words):")
-    freq_map = word_frequency(twitter_data['processed_text'])
+    freq_map = word_frequency(social_data['processed_text'])
     top_words = sorted(freq_map.items(), key=lambda x: x[1], reverse=True)[:10]
     print(top_words)
 
@@ -168,13 +168,13 @@ if os.path.exists(file_path):
     plt.close()
 
     # Sentiment Sorting (DSA Concept - Sorting)
-    sorted_data = sort_by_sentiment(twitter_data['processed_text'], twitter_data['sentiment'])
+    sorted_data = sort_by_sentiment(social_data['processed_text'], social_data['sentiment'])
     print("\nTop 5 Sorted Tweets by Sentiment:")
     for tweet, sentiment in sorted_data[:5]:
         print(f"Sentiment: {sentiment} - Tweet: {tweet}")
 
     # Ensure no NaN values in the processed text column before vectorization
-    twitter_data['processed_text'] = twitter_data['processed_text'].fillna('')
+    social_data['processed_text'] = social_data['processed_text'].fillna('')
 
     vectorizer = TfidfVectorizer(max_features=1000)
     X_tfidf = vectorizer.fit_transform(X)
